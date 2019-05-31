@@ -1,0 +1,14 @@
+######
+
+include share.mk
+
+######
+
+all:: fetch_tmpr build_tmpr
+
+fetch_tmpr:: ; git clone $(TEMPTORYURL) ${TEMPTORYBUILD}
+
+build_tmpr:: exportats2 exportats1
+build_tmpr:: ; (cd $(TEMPTORYBUILD) && make)
+
+######

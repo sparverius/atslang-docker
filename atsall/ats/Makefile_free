@@ -1,0 +1,15 @@
+######
+
+include share.mk
+
+######
+
+all:: clean
+all:: clean_dirs
+
+clean:: ; (cd $(ATSHOMEQ) && $(MAKE) clean)
+clean:: ; (cd $(PATSHOMEQ) && $(MAKE) clean)
+clean:: ; (cd $(TEMPTORY) && $(MAKE) clean)
+
+clean_dirs:: ; $(RMRF) $(TEMPTORYBUILD)
+

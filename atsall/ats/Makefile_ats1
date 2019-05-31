@@ -1,0 +1,15 @@
+######
+
+include share.mk
+
+######
+
+all:: fetch_ats1 exportats1 bashrcats1 build_ats1
+
+fetch_ats1:: ; wget -q $(ATSTGZURL) 
+fetch_ats1:: ; tar -zxf $(HOMEQ)/$(ATSPACKTGZ)
+fetch_ats1:: ; mv $(HOMEQ)/$(ATSPACK) $(ATSHOME)
+
+build_ats1:: ; (cd $(ATSHOME) && ./configure) && $(MAKE) -C $(ATSHOME) CC=$(GCC) all_ngc
+
+

@@ -1,0 +1,15 @@
+######
+
+include share.mk
+
+######
+
+all:: fetch_temp build_temp bashrctemp
+
+fetch_temp:: ; cp -rp $(TEMPTORYBUILD)/$(TMPPACK) $(HOMEQ)
+fetch_temp:: ; tar -zxf $(TMPPACK)
+fetch_temp:: ; rm -f $(TMPPACK)
+fetch_temp:: ; mv $(TMPNAME) $(TEMPTORYQ)
+
+build_temp:: ; (cd $(TEMPTORYQ) && ./configure && make all)
+

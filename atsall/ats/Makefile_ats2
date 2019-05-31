@@ -1,0 +1,13 @@
+######
+
+include share.mk
+
+######
+
+all:: fetch_ats2 exportats2 bashrcats2 build_ats2 
+
+fetch_ats2:: ; wget -q $(ATS2TGZURL) 
+fetch_ats2:: ; tar -zxf $(HOMEQ)/$(ATS2PACKTGZ)
+fetch_ats2:: ; mv $(HOMEQ)/$(ATS2PACK) $(PATSHOMEQ)
+
+build_ats2:: ; (cd $(PATSHOMEQ) && ./configure && $(MAKE) CC=$(GCC) all)
