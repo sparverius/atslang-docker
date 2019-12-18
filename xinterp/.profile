@@ -7,4 +7,4 @@ export PATH=${PATH}:${PATSHOME}/bin
 
 export XATSHOME=/home/xinterp/xanadu
 export XINTERP=/home/xinterp
-export PATH=${PATH}:${xinterp}/bin
+export PATH=${PATH}:${XINTERP}/bin
